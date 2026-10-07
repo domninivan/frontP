@@ -59,9 +59,8 @@
       <section class="hero">
         <h1>Учебный интернет-магазин</h1>
         <p>
-          Это стартовая страница учебного frontend-проекта. В дальнейшем на её
-          основе будет разработан многостраничный сайт интернет-магазина или
-          каталога услуг.
+          Главная страница многостраничного учебного интернет-магазина с
+          каталогом, карточкой товара, формой заявки и контактной информацией.
         </p>
         <a class="button button--primary" href="#popular">Перейти к товарам</a>
       </section>
@@ -74,7 +73,7 @@
           <li>понятная HTML-структура;</li>
           <li>семантические блоки страницы;</li>
           <li>подключение внешнего CSS-файла;</li>
-          <li>подготовка к разработке многостраничного сайта.</li>
+          <li>многостраничная структура сайта и единая навигация.</li>
         </ul>
       </section>
 
@@ -85,9 +84,14 @@
         <div class="products-grid">
           <!-- Блок product-card + модификатор -->
           <article class="product-card product-card--featured">
+            <img
+              class="product-card__image"
+              src="images/product-1.svg"
+              alt="Иллюстрация товара 1"
+            />
             <h3 class="product-card__title">Товар 1</h3>
             <p class="product-card__description">
-              Краткое описание учебного товара.
+              Универсальный товар для учебного каталога и оформления заявки.
             </p>
             <p class="product-card__price">Цена: 1000 руб.</p>
             <button
@@ -97,12 +101,18 @@
             >
               Заказать
             </button>
+            <a class="product-card__link" href="product.html">Подробнее</a>
           </article>
 
           <article class="product-card">
+            <img
+              class="product-card__image"
+              src="images/product-2.svg"
+              alt="Иллюстрация товара 2"
+            />
             <h3 class="product-card__title">Товар 2</h3>
             <p class="product-card__description">
-              Краткое описание учебного товара.
+              Универсальный товар для учебного каталога и оформления заявки.
             </p>
             <p class="product-card__price">Цена: 1500 руб.</p>
             <button
@@ -112,12 +122,18 @@
             >
               Заказать
             </button>
+            <a class="product-card__link" href="product.html">Подробнее</a>
           </article>
 
           <article class="product-card">
+            <img
+              class="product-card__image"
+              src="images/product-3.svg"
+              alt="Иллюстрация товара 3"
+            />
             <h3 class="product-card__title">Товар 3</h3>
             <p class="product-card__description">
-              Краткое описание учебного товара.
+              Универсальный товар для учебного каталога и оформления заявки.
             </p>
             <p class="product-card__price">Цена: 2000 руб.</p>
             <button
@@ -127,6 +143,7 @@
             >
               Заказать
             </button>
+            <a class="product-card__link" href="product.html">Подробнее</a>
           </article>
         </div>
       </section>
@@ -135,9 +152,9 @@
       <aside class="aside-info">
         <h2 class="aside-info__title">Информация для студентов</h2>
         <p>
-          На следующих практических занятиях этот проект будет расширяться:
-          появятся формы, модальное окно, дополнительные страницы, Flex/Grid,
-          БЭМ-структура и адаптивная версия сайта.
+          Проект включает семантическую HTML-разметку, CSS-переменные, Flexbox и
+          Grid, БЭМ-классы, формы с валидацией, модальное окно и отдельные
+          страницы.
         </p>
       </aside>
     </main>
