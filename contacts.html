@@ -1,90 +1,122 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Контактная информация учебного интернет-магазина."
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Контактная информация ShopProject." />
+    <title>Контакты — ShopProject</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
     />
-    <title>Контакты — Учебный интернет-магазин</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="js/main.js" defer></script>
   </head>
   <body>
-    <header class="site-header">
-      <div class="site-header__inner">
-        <a class="site-header__logo" href="index.html">ShopProject</a>
-
-        <nav class="site-nav" aria-label="Основная навигация">
-          <ul class="site-nav__list">
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html">Главная</a>
+    <header class="navbar navbar-expand-lg navbar-dark shop-navbar sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">ShopProject</a
+        ><button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavigation"
+          aria-controls="mainNavigation"
+          aria-expanded="false"
+          aria-label="Открыть меню"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <nav
+          class="collapse navbar-collapse"
+          id="mainNavigation"
+          aria-label="Основная навигация"
+        >
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Главная</a>
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="catalog.html">Каталог</a>
+            <li class="nav-item">
+              <a class="nav-link" href="catalog.html">Каталог</a>
             </li>
-            <li class="site-nav__item">
+            <li class="nav-item">
               <a
-                class="site-nav__link site-nav__link--active"
-                href="contacts.html"
+                class="nav-link active"
                 aria-current="page"
+                href="contacts.html"
                 >Контакты</a
               >
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#advantages"
-                >Преимущества</a
-              >
+            <li class="nav-item">
+              <a class="nav-link" href="product.html">Товар</a>
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#popular"
-                >Популярные товары</a
-              >
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#contacts"
-                >Обратная связь</a
-              >
+            <li class="nav-item">
+              <a class="nav-link" href="order.html">Оформить заявку</a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
-
-    <main>
-      <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="index.html">Главная</a>
-        <span class="breadcrumbs__current">Контакты</span>
+    <main class="container py-5">
+      <nav aria-label="Хлебные крошки" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+        </ol>
       </nav>
-
-      <section class="section">
-        <h1>Контакты</h1>
-        <p>
-          Здесь размещается контактная информация учебного интернет-магазина.
+      <div class="mb-5">
+        <p class="eyebrow">Свяжитесь с нами</p>
+        <h1 class="display-5 fw-bold">Контакты</h1>
+        <p class="lead text-secondary">
+          Учебный интернет-магазин компьютерной периферии.
         </p>
-
-        <ul class="contacts-list">
-          <li>Телефон: +7 (900) 000-00-00</li>
-          <li>E-mail: info@example.com</li>
-          <li>Адрес: г. Москва, учебный проект</li>
-        </ul>
-      </section>
-
-      <section class="section" id="feedback">
-        <h2 class="section__title">Обратная связь</h2>
-        <p>
-          Для отправки заявки используйте отдельную страницу оформления заказа.
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="info-card h-100">
+            <div class="contact-icon">☎</div>
+            <h2 class="h5">Телефон</h2>
+            <p class="mb-0">
+              <a href="tel:+79000000000">+7 (900) 000-00-00</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-card h-100">
+            <div class="contact-icon">✉</div>
+            <h2 class="h5">E-mail</h2>
+            <p class="mb-0">
+              <a href="mailto:info@example.com">info@example.com</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-card h-100">
+            <div class="contact-icon">⌖</div>
+            <h2 class="h5">Адрес</h2>
+            <p class="mb-0">г. Москва, учебный проект</p>
+          </div>
+        </div>
+      </div>
+      <section class="catalog-hero p-4 p-lg-5 mt-5">
+        <h2 class="h3 fw-bold">Нужна помощь с выбором?</h2>
+        <p class="text-secondary">
+          Оставьте заявку, и мы сможем связаться с вами в рамках демонстрации
+          проекта.
         </p>
-        <a class="button button--primary" href="index.html#contacts"
-          >Перейти к форме</a
-        >
+        <a href="order.html" class="btn btn-primary">Оставить заявку</a>
       </section>
     </main>
-
     <footer class="site-footer">
-      <div class="site-footer__inner">
-        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-        <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between gap-2"
+      >
+        <span>© 2026 ShopProject. Учебный проект.</span
+        ><a href="catalog.html">Каталог товаров</a>
       </div>
     </footer>
   </body>

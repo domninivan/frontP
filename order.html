@@ -1,38 +1,59 @@
-<!doctype html>
+octype html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Форма оформления заявки на товар учебного интернет-магазина."
+      content="Форма оформления заявки на товар ShopProject."
     />
-    <title>Оформление заявки — Учебный интернет-магазин</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Оформление заявки — ShopProject</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="js/main.js" defer></script>
   </head>
   <body>
-    <header class="site-header">
-      <div class="site-header__inner">
-        <a class="site-header__logo" href="index.html">ShopProject</a>
-        <nav class="site-nav" aria-label="Основная навигация">
-          <ul class="site-nav__list">
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html">Главная</a>
+    <header class="navbar navbar-expand-lg navbar-dark shop-navbar sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">ShopProject</a
+        ><button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavigation"
+          aria-controls="mainNavigation"
+          aria-expanded="false"
+          aria-label="Открыть меню"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <nav
+          class="collapse navbar-collapse"
+          id="mainNavigation"
+          aria-label="Основная навигация"
+        >
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Главная</a>
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="catalog.html">Каталог</a>
+            <li class="nav-item">
+              <a class="nav-link" href="catalog.html">Каталог</a>
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="contacts.html">Контакты</a>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">Контакты</a>
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="product.html">Товар</a>
+            <li class="nav-item">
+              <a class="nav-link" href="product.html">Товар</a>
             </li>
-            <li class="site-nav__item">
-              <a
-                class="site-nav__link site-nav__link--active"
-                href="order.html"
-                aria-current="page"
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="order.html"
                 >Оформить заявку</a
               >
             </li>
@@ -40,145 +61,190 @@
         </nav>
       </div>
     </header>
-
-    <main>
-      <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="index.html">Главная</a>
-        <span class="breadcrumbs__separator"> / </span>
-        <span class="breadcrumbs__current">Оформление заявки</span>
+    <main class="container py-5">
+      <nav aria-label="Хлебные крошки" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Оформление заявки
+          </li>
+        </ol>
       </nav>
-
-      <section class="section order-page">
-        <div class="order-page__intro">
-          <h1>Оформление заявки</h1>
-          <p>
-            Заполните форму, чтобы оставить заявку на товар или получить
-            консультацию.
-          </p>
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+          <div class="mb-4">
+            <p class="eyebrow">Мы на связи</p>
+            <h1 class="display-6 fw-bold">Оформление заявки</h1>
+            <p class="text-secondary">
+              Заполните форму, чтобы оставить заявку на товар или получить
+              консультацию.
+            </p>
+          </div>
+          <form
+            id="fullOrderForm"
+            class="form-panel needs-validation"
+            novalidate
+          >
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="page-name" class="form-label">Имя</label
+                ><input
+                  class="form-control"
+                  id="page-name"
+                  name="name"
+                  type="text"
+                  minlength="2"
+                  autocomplete="given-name"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Введите имя (минимум 2 символа).
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="page-email" class="form-label">E-mail</label
+                ><input
+                  class="form-control"
+                  id="page-email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Введите корректный адрес электронной почты.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="page-phone" class="form-label">Телефон</label
+                ><input
+                  class="form-control"
+                  id="page-phone"
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  placeholder="+7 (900) 000-00-00"
+                  pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                  required
+                />
+                <div class="form-text">Формат: +7 (900) 000-00-00</div>
+                <div class="invalid-feedback">Проверьте формат телефона.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="page-product" class="form-label">Товар</label
+                ><select
+                  class="form-select"
+                  id="page-product"
+                  name="product"
+                  required
+                >
+                  <option value="">Выберите товар</option>
+                  <option>Pro Mouse X1</option>
+                  <option>Speed M2</option>
+                  <option>HyperType K87</option>
+                  <option>Office Type 100</option>
+                  <option>Sound Pro H5</option>
+                  <option>Gaming Voice G1</option>
+                  <option>Консультация</option>
+                </select>
+                <div class="invalid-feedback">
+                  Выберите товар или консультацию.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="page-date" class="form-label"
+                  >Желаемая дата связи</label
+                ><input
+                  class="form-control"
+                  id="page-date"
+                  name="date"
+                  type="date"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="page-topic" class="form-label">Тема</label
+                ><select
+                  class="form-select"
+                  id="page-topic"
+                  name="topic"
+                  required
+                >
+                  <option value="">Выберите тему</option>
+                  <option value="order">Заказ товара</option>
+                  <option value="consultation">Консультация</option>
+                  <option value="delivery">Доставка</option>
+                </select>
+                <div class="invalid-feedback">Выберите тему заявки.</div>
+              </div>
+              <div class="col-12">
+                <label for="page-comment" class="form-label">Комментарий</label
+                ><textarea
+                  class="form-control"
+                  id="page-comment"
+                  name="comment"
+                  rows="4"
+                  placeholder="Дополнительная информация"
+                ></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    id="page-agreement"
+                    type="checkbox"
+                    name="agreement"
+                    required
+                  /><label class="form-check-label" for="page-agreement"
+                    >Я согласен на обработку данных</label
+                  >
+                  <div class="invalid-feedback">
+                    Необходимо подтвердить согласие.
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 d-flex flex-column flex-sm-row gap-2 mt-4">
+                <a class="btn btn-outline-secondary" href="catalog.html"
+                  >Вернуться в каталог</a
+                ><button class="btn btn-primary" type="submit">
+                  Отправить заявку
+                </button>
+              </div>
+            </div>
+            <p class="form-text mt-3 mb-0">
+              Это учебная форма. Данные проверяются в браузере, но не
+              отправляются на сервер.
+            </p>
+          </form>
         </div>
-
-        <form class="order-form order-form--page" action="#" method="post">
-          <div class="order-form__grid">
-            <div class="order-form__field">
-              <label class="order-form__label" for="page-name">Имя</label>
-              <input
-                class="order-form__input"
-                id="page-name"
-                name="name"
-                type="text"
-                minlength="2"
-                autocomplete="given-name"
-                required
-              />
-            </div>
-            <div class="order-form__field">
-              <label class="order-form__label" for="page-email">E-mail</label>
-              <input
-                class="order-form__input"
-                id="page-email"
-                name="email"
-                type="email"
-                autocomplete="email"
-                required
-              />
-            </div>
-            <div class="order-form__field">
-              <label class="order-form__label" for="page-phone">Телефон</label>
-              <input
-                class="order-form__input"
-                id="page-phone"
-                name="phone"
-                type="tel"
-                inputmode="tel"
-                placeholder="+7 (900) 000-00-00"
-                pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
-                required
-              />
-              <small class="order-form__hint">Формат: +7 (900) 000-00-00</small>
-            </div>
-            <div class="order-form__field">
-              <label class="order-form__label" for="page-product">Товар</label>
-              <select
-                class="order-form__select"
-                id="page-product"
-                name="product"
-                required
-              >
-                <option value="">Выберите товар</option>
-                <option value="Товар 1">Товар 1 — 1000 руб.</option>
-                <option value="Товар 2">Товар 2 — 1500 руб.</option>
-                <option value="Товар 3">Товар 3 — 2000 руб.</option>
-              </select>
-            </div>
-            <div class="order-form__field">
-              <label class="order-form__label" for="page-date"
-                >Желаемая дата связи</label
-              >
-              <input
-                class="order-form__input"
-                id="page-date"
-                name="date"
-                type="date"
-              />
-            </div>
-            <div class="order-form__field">
-              <label class="order-form__label" for="page-topic">Тема</label>
-              <select
-                class="order-form__select"
-                id="page-topic"
-                name="topic"
-                required
-              >
-                <option value="">Выберите тему</option>
-                <option value="order">Заказ товара</option>
-                <option value="consultation">Консультация</option>
-                <option value="delivery">Доставка</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="order-form__field">
-            <label class="order-form__label" for="page-comment"
-              >Комментарий</label
-            >
-            <textarea
-              class="order-form__textarea"
-              id="page-comment"
-              name="comment"
-              rows="5"
-              placeholder="Дополнительная информация"
-            ></textarea>
-          </div>
-
-          <div class="order-form__field order-form__field--checkbox">
-            <label class="order-form__label">
-              <input
-                class="order-form__input"
-                type="checkbox"
-                name="agreement"
-                required
-              />
-              Я согласен на обработку данных
-            </label>
-          </div>
-
-          <div class="order-form__actions">
-            <a class="button button--secondary" href="catalog.html"
-              >Вернуться в каталог</a
-            >
-            <button class="button button--primary" type="submit">
-              Отправить заявку
-            </button>
-          </div>
-        </form>
-      </section>
+      </div>
     </main>
-
     <footer class="site-footer">
-      <div class="site-footer__inner">
-        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-        <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between gap-2"
+      >
+        <span>© 2026 ShopProject. Учебный проект.</span
+        ><a href="contacts.html">Контакты</a>
       </div>
     </footer>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="siteToast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">ShopProject</strong
+          ><button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Закрыть"
+          ></button>
+        </div>
+        <div class="toast-body" id="toastMessage">Готово!</div>
+      </div>
+    </div>
   </body>
 </html>

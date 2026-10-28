@@ -1,69 +1,115 @@
-// Получаем модальное окно по id
-const orderDialog = document.getElementById("order-dialog");
+/* Интерактивность учебного проекта. Заявки не отправляются на сервер. */
+document.addEventListener("DOMContentLoaded", () => {
+  const modalProduct = document.getElementById("quick-product");
+  const orderModal = document.getElementById("orderModal");
+  const quickForm = document.getElementById("quickOrderForm");
+  const fullForm = document.getElementById("fullOrderForm");
+  const toastElement = document.getElementById("siteToast");
+  const toastMessage = document.getElementById("toastMessage");
 
-// Получаем все кнопки заказа в карточках товаров
-const orderButtons = document.querySelectorAll(".product-card__button");
-
-// Получаем кнопку закрытия модального окна
-const closeDialogButton = document.getElementById("close-order-dialog");
-
-// Получаем скрытое поле для товара
-const selectedProductInput = document.getElementById("selected-product");
-
-// Перебираем все кнопки «Заказать»
-orderButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const productName = button.dataset.product;
-    selectedProductInput.value = productName;
-    orderDialog.showModal();
-  });
-});
-
-// Закрываем модальное окно по кнопке «Закрыть»
-closeDialogButton.addEventListener("click", () => {
-  orderDialog.close();
-});
-
-// Получаем форму заявки
-const orderForm = document.getElementById("order-form");
-
-// Получаем сообщение об успешной отправке
-const successMessage = document.getElementById("success-message");
-
-// Обрабатываем отправку формы
-orderForm.addEventListener("submit", (event) => {
-  // 1. Отменяем стандартную отправку формы,
-  // потому что backend пока не подключён
-  event.preventDefault();
-
-  // 2. Сбрасываем предыдущие признаки ошибок
-  const formElements = Array.from(orderForm.elements);
-
-  formElements.forEach((element) => {
-    if (element.willValidate) {
-      element.removeAttribute("aria-invalid");
+  function showMessage(message) {
+    if (!toastElement || !window.bootstrap) {
+      window.alert(message);
+      return;
     }
-  });
-
-  // 3. Проверяем встроенные HTML-ограничения формы
-  if (!orderForm.checkValidity()) {
-    formElements.forEach((element) => {
-      if (element.willValidate && !element.checkValidity()) {
-        element.setAttribute("aria-invalid", "true");
-      }
-    });
-
-    // Показываем стандартные сообщения браузера
-    orderForm.reportValidity();
-    return;
+    if (toastMessage) toastMessage.textContent = message;
+    window.bootstrap.Toast.getOrCreateInstance(toastElement).show();
   }
 
-  // 4. Если всё ок — показываем сообщение об успехе
-  successMessage.hidden = false;
+  document
+    .querySelectorAll("[data-product][data-bs-target]")
+    .forEach((button) => {
+      button.addEventListener("click", () => {
+        if (modalProduct) modalProduct.value = button.dataset.product || "";
+      });
+    });
 
-  // 5. Очищаем форму
-  orderForm.reset();
+  function validateForm(form) {
+    if (!form) return false;
+    form.classList.add("was-validated");
+    return form.checkValidity();
+  }
 
-  // 6. Закрываем модальное окно
-  orderDialog.close();
+  if (quickForm) {
+    quickForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (!validateForm(quickForm)) {
+        quickForm.querySelector(":invalid")?.focus();
+        return;
+      }
+      const product = modalProduct?.value || "выбранный товар";
+      quickForm.reset();
+      quickForm.classList.remove("was-validated");
+      if (orderModal && window.bootstrap) {
+        window.bootstrap.Modal.getOrCreateInstance(orderModal).hide();
+      }
+      showMessage(
+        `Заявка на «${product}» оформлена в демонстрационном режиме.`,
+      );
+    });
+  }
+
+  if (fullForm) {
+    fullForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (!validateForm(fullForm)) {
+        fullForm.querySelector(":invalid")?.focus();
+        return;
+      }
+      const formData = new FormData(fullForm);
+      const product = formData.get("product") || "товар";
+      fullForm.reset();
+      fullForm.classList.remove("was-validated");
+      showMessage(
+        `Заявка на «${product}» проверена. Данные не отправлялись на сервер.`,
+      );
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  const filterForm = document.getElementById("catalogFilter");
+  if (filterForm) {
+    const items = [...document.querySelectorAll(".product-item")];
+    const count = document.getElementById("productCount");
+    const empty = document.getElementById("noProducts");
+
+    function applyFilters(event) {
+      if (event) event.preventDefault();
+      const selected = [
+        ...filterForm.querySelectorAll('input[name="category"]:checked'),
+      ].map((input) => input.value);
+      const fromValue = document.getElementById("priceFrom")?.value;
+      const toValue = document.getElementById("priceTo")?.value;
+      const min = fromValue === "" || fromValue == null ? 0 : Number(fromValue);
+      const max =
+        toValue === "" || toValue == null ? Infinity : Number(toValue);
+      let visible = 0;
+
+      items.forEach((item) => {
+        const categoryMatches =
+          selected.length === 0 || selected.includes(item.dataset.category);
+        const price = Number(item.dataset.price);
+        const priceMatches = price >= min && price <= max;
+        const show = categoryMatches && priceMatches;
+        item.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (count)
+        count.textContent = `${visible} ${visible === 1 ? "товар" : visible >= 2 && visible <= 4 ? "товара" : "товаров"}`;
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    filterForm.addEventListener("submit", applyFilters);
+    filterForm.addEventListener("reset", () =>
+      window.setTimeout(() => {
+        items.forEach((item) => {
+          item.hidden = false;
+        });
+        if (count) count.textContent = `${items.length} товаров`;
+        if (empty) empty.hidden = true;
+      }, 0),
+    );
+  }
 });

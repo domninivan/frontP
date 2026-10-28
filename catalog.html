@@ -1,195 +1,454 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Каталог товаров учебного интернет-магазина."
+      content="Каталог компьютерной периферии ShopProject."
     />
-    <title>Каталог товаров — Учебный интернет-магазин</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Каталог — ShopProject</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="js/main.js" defer></script>
   </head>
   <body>
-    <header class="site-header">
-      <div class="site-header__inner">
-        <a class="site-header__logo" href="index.html">ShopProject</a>
-
-        <nav class="site-nav" aria-label="Основная навигация">
-          <ul class="site-nav__list">
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html">Главная</a>
+    <header class="navbar navbar-expand-lg navbar-dark shop-navbar sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">ShopProject</a
+        ><button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavigation"
+          aria-controls="mainNavigation"
+          aria-expanded="false"
+          aria-label="Открыть меню"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <nav
+          class="collapse navbar-collapse"
+          id="mainNavigation"
+          aria-label="Основная навигация"
+        >
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Главная</a>
             </li>
-            <li class="site-nav__item">
-              <a
-                class="site-nav__link site-nav__link--active"
-                href="catalog.html"
-                aria-current="page"
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="catalog.html"
                 >Каталог</a
               >
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="contacts.html">Контакты</a>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">Контакты</a>
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#advantages"
-                >Преимущества</a
-              >
+            <li class="nav-item">
+              <a class="nav-link" href="product.html">Товар</a>
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="product.html"
-                >Популярные товары</a
-              >
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#contacts"
-                >Обратная связь</a
-              >
+            <li class="nav-item">
+              <a class="nav-link" href="order.html">Оформить заявку</a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
-
-    <main>
-      <!-- Блок breadcrumbs -->
-      <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="index.html">Главная</a>
-        <span class="breadcrumbs__current">Каталог</span>
-      </nav>
-
-      <section class="section">
-        <h1>Каталог товаров</h1>
-        <p>
-          На этой странице представлены товары учебного интернет-магазина.
-          Фильтры являются статической частью интерфейса и демонстрируют
-          структуру каталога.
+    <main class="container py-5">
+      <div class="catalog-hero p-4 p-lg-5 mb-5">
+        <p class="eyebrow">PC PERIPHERY</p>
+        <h1 class="display-5 fw-bold">Каталог товаров</h1>
+        <p class="lead text-secondary mb-0">
+          Выберите устройство для работы, учёбы или игр.
         </p>
-      </section>
-
-      <!-- Блок catalog-layout -->
-      <section class="catalog-layout">
-        <!-- Блок catalog-filters -->
-        <aside class="catalog-filters">
-          <h2 class="catalog-filters__title">Фильтры</h2>
-
-          <form class="catalog-filters__form" action="#" method="get">
-            <fieldset class="catalog-filters__group">
-              <legend class="catalog-filters__legend">Категория</legend>
-
-              <label class="catalog-filters__label">
-                <input type="checkbox" name="category" value="all" />
-                Все товары
-              </label>
-
-              <label class="catalog-filters__label">
-                <input type="checkbox" name="category" value="popular" />
-                Популярные
-              </label>
-
-              <label class="catalog-filters__label">
-                <input type="checkbox" name="category" value="new" />
-                Новинки
-              </label>
-            </fieldset>
-
-            <fieldset class="catalog-filters__group">
-              <legend class="catalog-filters__legend">Цена</legend>
-
-              <label class="catalog-filters__label" for="price-from">От</label>
-              <input
-                class="catalog-filters__input"
-                id="price-from"
-                name="price-from"
-                type="number"
-                min="0"
-                placeholder="0"
-              />
-
-              <label class="catalog-filters__label" for="price-to">До</label>
-              <input
-                class="catalog-filters__input"
-                id="price-to"
-                name="price-to"
-                type="number"
-                min="0"
-                placeholder="5000"
-              />
-            </fieldset>
-
-            <button class="button button--primary" type="submit">
-              Применить
-            </button>
-          </form>
-        </aside>
-
-        <section class="catalog-products">
-          <h2 class="section__title">Список товаров</h2>
-
-          <div class="products-grid">
-            <article class="product-card">
-              <img
-                class="product-card__image"
-                src="images/product-1.svg"
-                alt="Иллюстрация товара 1"
-              />
-              <h3 class="product-card__title">Товар 1</h3>
-              <p class="product-card__description">
-                Краткое описание учебного товара.
-              </p>
-              <p class="product-card__price">Цена: 1000 руб.</p>
-              <a
-                class="button button--primary product-card__button"
-                href="product.html"
-                >Подробнее</a
+      </div>
+      <div class="row g-4">
+        <aside class="col-lg-3">
+          <div class="filter-panel">
+            <h2 class="h5 mb-3">Фильтры каталога</h2>
+            <form id="catalogFilter">
+              <fieldset class="mb-3">
+                <legend class="fs-6 fw-semibold">Категория</legend>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="category"
+                    value="mouse"
+                    id="catMouse"
+                  /><label class="form-check-label" for="catMouse">Мышки</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="category"
+                    value="keyboard"
+                    id="catKeyboard"
+                  /><label class="form-check-label" for="catKeyboard"
+                    >Клавиатуры</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="category"
+                    value="headset"
+                    id="catHeadset"
+                  /><label class="form-check-label" for="catHeadset"
+                    >Гарнитуры</label
+                  >
+                </div>
+              </fieldset>
+              <fieldset class="mb-3">
+                <legend class="fs-6 fw-semibold">Цена, ₽</legend>
+                <label class="form-label" for="priceFrom">От</label
+                ><input
+                  class="form-control mb-2"
+                  type="number"
+                  id="priceFrom"
+                  min="0"
+                  placeholder="0"
+                /><label class="form-label" for="priceTo">До</label
+                ><input
+                  class="form-control"
+                  type="number"
+                  id="priceTo"
+                  min="0"
+                  placeholder="15000"
+                />
+              </fieldset>
+              <button class="btn btn-primary w-100" type="submit">
+                Применить</button
+              ><button
+                class="btn btn-outline-secondary w-100 mt-2"
+                type="reset"
               >
-            </article>
-
-            <article class="product-card">
-              <img
-                class="product-card__image"
-                src="images/product-2.svg"
-                alt="Иллюстрация товара 2"
-              />
-              <h3 class="product-card__title">Товар 2</h3>
-              <p class="product-card__description">
-                Краткое описание учебного товара.
-              </p>
-              <p class="product-card__price">Цена: 1500 руб.</p>
-              <a
-                class="button button--primary product-card__button"
-                href="product.html"
-                >Подробнее</a
-              >
-            </article>
-
-            <article class="product-card">
-              <img
-                class="product-card__image"
-                src="images/product-3.svg"
-                alt="Иллюстрация товара 3"
-              />
-              <h3 class="product-card__title">Товар 3</h3>
-              <p class="product-card__description">
-                Краткое описание учебного товара.
-              </p>
-              <p class="product-card__price">Цена: 2000 руб.</p>
-              <a
-                class="button button--primary product-card__button"
-                href="product.html"
-                >Подробнее</a
-              >
-            </article>
+                Сбросить
+              </button>
+            </form>
           </div>
+        </aside>
+        <section class="col-lg-9" aria-label="Список товаров">
+          <div
+            class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2"
+          >
+            <h2 class="section-heading mb-0">Все товары</h2>
+            <span id="productCount" class="text-secondary small"
+              >6 товаров</span
+            >
+          </div>
+          <div class="row g-4" id="catalogGrid">
+            <div
+              class="col-sm-6 col-xl-4 product-item"
+              data-category="mouse"
+              data-price="3990"
+            >
+              <article class="card product-card h-100">
+                <img
+                  src="images/product-1.svg"
+                  class="card-img-top"
+                  alt="Игровая мышь Pro Mouse X1"
+                />
+                <div class="card-body d-flex flex-column">
+                  <span class="badge text-bg-primary align-self-start mb-2"
+                    >Мышки</span
+                  >
+                  <h3 class="card-title h5">Pro Mouse X1</h3>
+                  <p class="card-text text-secondary">
+                    Точный сенсор и эргономичная форма.
+                  </p>
+                  <p class="price mt-auto">3 990 ₽</p>
+                  <button
+                    class="btn btn-primary mt-auto"
+                    data-product="Pro Mouse X1"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-sm-6 col-xl-4 product-item"
+              data-category="mouse"
+              data-price="4990"
+            >
+              <article class="card product-card h-100">
+                <img
+                  src="images/product-2.svg"
+                  class="card-img-top"
+                  alt="Игровая мышь Speed M2"
+                />
+                <div class="card-body d-flex flex-column">
+                  <span class="badge text-bg-primary align-self-start mb-2"
+                    >Мышки</span
+                  >
+                  <h3 class="card-title h5">Speed M2</h3>
+                  <p class="card-text text-secondary">
+                    Игровая мышь с удобным хватом.
+                  </p>
+                  <p class="price mt-auto">4 990 ₽</p>
+                  <button
+                    class="btn btn-primary mt-auto"
+                    data-product="Speed M2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-sm-6 col-xl-4 product-item"
+              data-category="keyboard"
+              data-price="7990"
+            >
+              <article class="card product-card h-100">
+                <img
+                  src="images/product-3.svg"
+                  class="card-img-top"
+                  alt="Клавиатура HyperType K87"
+                />
+                <div class="card-body d-flex flex-column">
+                  <span class="badge text-bg-success align-self-start mb-2"
+                    >Клавиатуры</span
+                  >
+                  <h3 class="card-title h5">HyperType K87</h3>
+                  <p class="card-text text-secondary">
+                    Механическая клавиатура формата TKL.
+                  </p>
+                  <p class="price mt-auto">7 990 ₽</p>
+                  <button
+                    class="btn btn-primary mt-auto"
+                    data-product="HyperType K87"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-sm-6 col-xl-4 product-item"
+              data-category="keyboard"
+              data-price="2990"
+            >
+              <article class="card product-card h-100">
+                <img
+                  src="images/product-1.svg"
+                  class="card-img-top"
+                  alt="Клавиатура Office Type 100"
+                />
+                <div class="card-body d-flex flex-column">
+                  <span class="badge text-bg-success align-self-start mb-2"
+                    >Клавиатуры</span
+                  >
+                  <h3 class="card-title h5">Office Type 100</h3>
+                  <p class="card-text text-secondary">
+                    Тихая клавиатура для повседневной работы.
+                  </p>
+                  <p class="price mt-auto">2 990 ₽</p>
+                  <button
+                    class="btn btn-primary mt-auto"
+                    data-product="Office Type 100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-sm-6 col-xl-4 product-item"
+              data-category="headset"
+              data-price="5490"
+            >
+              <article class="card product-card h-100">
+                <img
+                  src="images/product-2.svg"
+                  class="card-img-top"
+                  alt="Гарнитура Sound Pro H5"
+                />
+                <div class="card-body d-flex flex-column">
+                  <span class="badge text-bg-warning align-self-start mb-2"
+                    >Гарнитуры</span
+                  >
+                  <h3 class="card-title h5">Sound Pro H5</h3>
+                  <p class="card-text text-secondary">
+                    Полноразмерная гарнитура для игр и общения.
+                  </p>
+                  <p class="price mt-auto">5 490 ₽</p>
+                  <button
+                    class="btn btn-primary mt-auto"
+                    data-product="Sound Pro H5"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-sm-6 col-xl-4 product-item"
+              data-category="headset"
+              data-price="6490"
+            >
+              <article class="card product-card h-100">
+                <img
+                  src="images/product-3.svg"
+                  class="card-img-top"
+                  alt="Гарнитура Gaming Voice G1"
+                />
+                <div class="card-body d-flex flex-column">
+                  <span class="badge text-bg-warning align-self-start mb-2"
+                    >Гарнитуры</span
+                  >
+                  <h3 class="card-title h5">Gaming Voice G1</h3>
+                  <p class="card-text text-secondary">
+                    Гарнитура с микрофоном для игр и общения.
+                  </p>
+                  <p class="price mt-auto">6 490 ₽</p>
+                  <button
+                    class="btn btn-primary mt-auto"
+                    data-product="Gaming Voice G1"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+          <p id="noProducts" class="alert alert-info mt-4" hidden>
+            По выбранным условиям товары не найдены.
+          </p>
         </section>
-      </section>
+      </div>
     </main>
-
     <footer class="site-footer">
-      <div class="site-footer__inner">
-        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-        <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between gap-2"
+      >
+        <span>© 2026 ShopProject. Учебный проект.</span
+        ><a href="contacts.html">Контакты</a>
       </div>
     </footer>
+    <div
+      class="modal fade"
+      id="orderModal"
+      tabindex="-1"
+      aria-labelledby="orderModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <form id="quickOrderForm" novalidate>
+            <div class="modal-header">
+              <h2 class="modal-title fs-5" id="orderModalLabel">
+                Оформление заявки
+              </h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Закрыть"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="quick-product" class="form-label">Товар</label
+                ><input
+                  id="quick-product"
+                  name="product"
+                  class="form-control"
+                  readonly
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="quick-name" class="form-label">Имя</label
+                ><input
+                  id="quick-name"
+                  name="name"
+                  class="form-control"
+                  minlength="2"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="quick-email" class="form-label">E-mail</label
+                ><input
+                  id="quick-email"
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-check mb-3">
+                <input
+                  id="quick-agreement"
+                  name="agreement"
+                  type="checkbox"
+                  class="form-check-input"
+                  required
+                /><label class="form-check-label" for="quick-agreement"
+                  >Согласен на обработку данных</label
+                >
+              </div>
+              <p class="small text-secondary mb-0">
+                Демонстрационная форма: данные не отправляются на сервер.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Отмена</button
+              ><button class="btn btn-primary" type="submit">
+                Отправить заявку
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="siteToast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">ShopProject</strong
+          ><button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Закрыть"
+          ></button>
+        </div>
+        <div class="toast-body" id="toastMessage">Готово!</div>
+      </div>
+    </div>
   </body>
 </html>

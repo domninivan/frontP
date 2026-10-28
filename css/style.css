@@ -3,17 +3,24 @@
    =============================== */
 :root {
   /* Основные цвета проекта */
-  --color-bg: #ffffff;
-  --color-text: #222222;
-  --color-muted: #666666;
-  --color-primary: #0057b8;
-  --color-primary-dark: #003f86;
-  --color-border: #dddddd;
-  --color-surface: #f7f7f7;
-  --color-surface-accent: #eef5ff;
-  --color-danger: #b00020;
-  --color-success: #168a2f;
-  --color-success-bg: #eefaf0;
+
+  --color-bg: #fdf6e3;
+  --color-text: #5c6a72;
+  --color-muted: #939f91;
+
+  --color-primary: #8da101;
+  --color-primary-dark: #708000;
+
+  --color-border: #d3c6aa;
+
+  --color-surface: #f4f0df;
+  --color-surface-accent: #e7edc7;
+
+  --color-danger: #f85552;
+
+  --color-success: #8da101;
+  --color-success-bg: #e7edc7;
+
   --color-white: #ffffff;
 
   /* Отступы */
@@ -44,7 +51,10 @@ html {
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
+  display: flex;
+  flex-direction: column;
   font-family: Arial, sans-serif;
   line-height: 1.5;
   color: var(--color-text);
@@ -52,6 +62,7 @@ body {
 }
 
 main {
+  flex: 1;
   padding: var(--space-lg);
 }
 
@@ -301,6 +312,8 @@ a:focus-visible {
 }
 
 .catalog-filters {
+  position: sticky;
+  top: 100px;
   grid-area: filters;
   padding: var(--space-md);
   border: 1px solid var(--color-border);
@@ -626,5 +639,254 @@ a:focus-visible {
   .order-form__actions .button {
     width: 100%;
     text-align: center;
+  }
+}
+/* ===============================
+   17.PC Periphery
+   =============================== */
+.hero__eyebrow,
+.catalog-intro__eyebrow,
+.catalog-category__eyebrow,
+.reviews__eyebrow {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 760px;
+  margin-top: 0;
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 1.05;
+}
+
+.catalog-intro {
+  padding: var(--space-xl) 0;
+}
+
+.catalog-intro h1 {
+  max-width: 760px;
+  margin-top: 0;
+  font-size: clamp(30px, 4vw, 48px);
+}
+
+.catalog-intro > p:last-child {
+  max-width: 720px;
+  color: var(--color-muted);
+}
+
+.catalog-filters {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+}
+
+.catalog-category {
+  scroll-margin-top: 24px;
+  margin-bottom: 56px;
+}
+
+.catalog-category:last-child {
+  margin-bottom: 0;
+}
+
+.catalog-category__heading,
+.reviews__heading {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  align-items: end;
+  margin-bottom: var(--space-lg);
+}
+
+.catalog-category__heading .section__title {
+  margin-bottom: 0;
+}
+
+.catalog-category__description,
+.reviews__summary {
+  max-width: 430px;
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.product-card__media {
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-accent);
+}
+
+.product-card__image {
+  transition: transform 0.35s ease;
+  transform-origin: center;
+}
+
+.product-card:hover .product-card__image,
+.product-card:focus-within .product-card__image {
+  transform: scale(1.06);
+}
+
+.product-card__category {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.product-card--new {
+  border-color: var(--color-primary);
+}
+
+.product-card--new::before {
+  content: "Новинка";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.product-card--discount::before {
+  content: "−15%";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: var(--color-white);
+  background-color: var(--color-danger);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ===============================
+   18. Блок reviews
+   =============================== */
+.reviews {
+  padding: var(--space-xl) 0;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+}
+
+.review-card--accent {
+  background-color: var(--color-surface-accent);
+  border-color: var(--color-primary);
+}
+
+.review-card__rating {
+  margin-bottom: var(--space-md);
+  color: var(--color-primary);
+  letter-spacing: 0.12em;
+}
+
+.review-card__text {
+  margin: 0 0 var(--space-lg);
+  font-size: 17px;
+}
+
+.review-card__author {
+  margin-top: auto;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.review-card__author span {
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+/* ===============================
+   19. Кнопка «Наверх»
+   =============================== */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 10;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  text-decoration: none;
+  font-size: 22px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-top:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+  .catalog-category__heading,
+  .reviews__heading {
+    align-items: start;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .catalog-filters {
+    position: sticky;
+    top: 12px;
+    z-index: 5;
+  }
+}
+
+@media (max-width: 560px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
   }
 }
