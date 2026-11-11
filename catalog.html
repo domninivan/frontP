@@ -1,195 +1,452 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Каталог товаров учебного интернет-магазина."
+      content="Каталог компьютерной периферии ShopProject: мыши, клавиатуры и гарнитуры с фильтрами по категории и цене."
     />
-    <title>Каталог товаров — Учебный интернет-магазин</title>
+    <title>Каталог — ShopProject</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <div class="site-header__inner">
-        <a class="site-header__logo" href="index.html">ShopProject</a>
-
-        <nav class="site-nav" aria-label="Основная навигация">
+      <div class="container site-header__inner">
+        <a class="site-header__brand" href="index.html">ShopProject</a>
+        <button
+          class="site-header__toggle"
+          type="button"
+          id="navToggle"
+          aria-controls="mainNavigation"
+          aria-expanded="false"
+          aria-label="Открыть меню"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav
+          class="site-nav"
+          id="mainNavigation"
+          aria-label="Основная навигация"
+        >
           <ul class="site-nav__list">
-            <li class="site-nav__item">
+            <li>
               <a class="site-nav__link" href="index.html">Главная</a>
             </li>
-            <li class="site-nav__item">
+            <li>
               <a
                 class="site-nav__link site-nav__link--active"
-                href="catalog.html"
                 aria-current="page"
+                href="catalog.html"
                 >Каталог</a
               >
             </li>
-            <li class="site-nav__item">
+            <li>
               <a class="site-nav__link" href="contacts.html">Контакты</a>
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#advantages"
-                >Преимущества</a
-              >
+            <li>
+              <a class="site-nav__link" href="product.html">Товар</a>
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="product.html"
-                >Популярные товары</a
-              >
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#contacts"
-                >Обратная связь</a
-              >
+            <li>
+              <a class="site-nav__link" href="order.html">Оформить заявку</a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main>
-      <!-- Блок breadcrumbs -->
-      <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="index.html">Главная</a>
-        <span class="breadcrumbs__current">Каталог</span>
-      </nav>
-
-      <section class="section">
+    <main class="container">
+      <section class="catalog-hero">
+        <p class="eyebrow">PC PERIPHERY</p>
         <h1>Каталог товаров</h1>
         <p>
-          На этой странице представлены товары учебного интернет-магазина.
-          Фильтры являются статической частью интерфейса и демонстрируют
-          структуру каталога.
+          Выберите устройство для работы, учёбы или игр. Фильтры помогут
+          отобрать товары по категории и цене.
         </p>
       </section>
 
-      <!-- Блок catalog-layout -->
-      <section class="catalog-layout">
-        <!-- Блок catalog-filters -->
-        <aside class="catalog-filters">
-          <h2 class="catalog-filters__title">Фильтры</h2>
-
-          <form class="catalog-filters__form" action="#" method="get">
-            <fieldset class="catalog-filters__group">
-              <legend class="catalog-filters__legend">Категория</legend>
-
-              <label class="catalog-filters__label">
-                <input type="checkbox" name="category" value="all" />
-                Все товары
-              </label>
-
-              <label class="catalog-filters__label">
-                <input type="checkbox" name="category" value="popular" />
-                Популярные
-              </label>
-
-              <label class="catalog-filters__label">
-                <input type="checkbox" name="category" value="new" />
-                Новинки
-              </label>
+      <div class="catalog-layout">
+        <aside class="catalog-filters" aria-label="Фильтры каталога">
+          <h2 class="catalog-filters__title">Фильтры каталога</h2>
+          <form id="catalogFilter">
+            <fieldset>
+              <legend>Категория</legend>
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  name="category"
+                  value="mouse"
+                  id="catMouse"
+                /><label for="catMouse">Мышки</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  name="category"
+                  value="keyboard"
+                  id="catKeyboard"
+                /><label for="catKeyboard">Клавиатуры</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  name="category"
+                  value="headset"
+                  id="catHeadset"
+                /><label for="catHeadset">Гарнитуры</label>
+              </div>
             </fieldset>
-
-            <fieldset class="catalog-filters__group">
-              <legend class="catalog-filters__legend">Цена</legend>
-
-              <label class="catalog-filters__label" for="price-from">От</label>
+            <fieldset>
+              <legend>Цена, ₽</legend>
+              <label for="priceFrom">От</label>
               <input
-                class="catalog-filters__input"
-                id="price-from"
-                name="price-from"
                 type="number"
+                id="priceFrom"
                 min="0"
+                step="100"
                 placeholder="0"
               />
-
-              <label class="catalog-filters__label" for="price-to">До</label>
+              <label for="priceTo">До</label>
               <input
-                class="catalog-filters__input"
-                id="price-to"
-                name="price-to"
                 type="number"
+                id="priceTo"
                 min="0"
-                placeholder="5000"
+                step="100"
+                placeholder="15000"
               />
             </fieldset>
-
-            <button class="button button--primary" type="submit">
-              Применить
-            </button>
+            <div>
+              <button
+                class="button button--primary button--block"
+                type="submit"
+              >
+                Применить
+              </button>
+              <button
+                class="button button--secondary button--block"
+                type="reset"
+                style="margin-top: 8px"
+              >
+                Сбросить
+              </button>
+            </div>
           </form>
         </aside>
 
-        <section class="catalog-products">
-          <h2 class="section__title">Список товаров</h2>
+        <section class="catalog-products" aria-label="Список товаров">
+          <div class="catalog-products__head">
+            <h2>Все товары</h2>
+            <span class="catalog-products__count" id="productCount"
+              >6 товаров</span
+            >
+          </div>
 
-          <div class="products-grid">
-            <article class="product-card">
-              <img
-                class="product-card__image"
-                src="images/product-1.svg"
-                alt="Иллюстрация товара 1"
-              />
-              <h3 class="product-card__title">Товар 1</h3>
-              <p class="product-card__description">
-                Краткое описание учебного товара.
-              </p>
-              <p class="product-card__price">Цена: 1000 руб.</p>
-              <a
-                class="button button--primary product-card__button"
-                href="product.html"
-                >Подробнее</a
-              >
+          <div class="products-grid" id="catalogGrid">
+            <article
+              class="product-card product-item"
+              data-category="mouse"
+              data-price="3990"
+            >
+              <div class="product-card__media">
+                <img
+                  class="product-card__image"
+                  src="images/product-mouse-x1.webp"
+                  alt="Игровая мышь Pro Mouse X1"
+                />
+              </div>
+              <div class="product-card__body">
+                <span class="badge badge--primary">Мышки</span>
+                <h3 class="product-card__title">Pro Mouse X1</h3>
+                <p class="product-card__description">
+                  Лёгкая игровая мышь (68 г) с сенсором 12 000 DPI и
+                  переключателями на 20 млн нажатий.
+                </p>
+                <p class="product-card__price">3 990 ₽</p>
+                <div class="product-card__actions">
+                  <button
+                    class="button button--primary button--block"
+                    type="button"
+                    data-product="Pro Mouse X1"
+                    data-open-dialog
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </div>
             </article>
 
-            <article class="product-card">
-              <img
-                class="product-card__image"
-                src="images/product-2.svg"
-                alt="Иллюстрация товара 2"
-              />
-              <h3 class="product-card__title">Товар 2</h3>
-              <p class="product-card__description">
-                Краткое описание учебного товара.
-              </p>
-              <p class="product-card__price">Цена: 1500 руб.</p>
-              <a
-                class="button button--primary product-card__button"
-                href="product.html"
-                >Подробнее</a
-              >
+            <article
+              class="product-card product-item"
+              data-category="mouse"
+              data-price="4990"
+            >
+              <div class="product-card__media">
+                <img
+                  class="product-card__image"
+                  src="images/product-mouse-speed.webp"
+                  alt="Игровая мышь Speed M2"
+                />
+              </div>
+              <div class="product-card__body">
+                <span class="badge badge--primary">Мышки</span>
+                <h3 class="product-card__title">Speed M2</h3>
+                <p class="product-card__description">
+                  Симметричный корпус под любую руку, шесть программируемых
+                  кнопок и гибкая настройка чувствительности.
+                </p>
+                <p class="product-card__price">4 990 ₽</p>
+                <div class="product-card__actions">
+                  <button
+                    class="button button--primary button--block"
+                    type="button"
+                    data-product="Speed M2"
+                    data-open-dialog
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </div>
             </article>
 
-            <article class="product-card">
-              <img
-                class="product-card__image"
-                src="images/product-3.svg"
-                alt="Иллюстрация товара 3"
-              />
-              <h3 class="product-card__title">Товар 3</h3>
-              <p class="product-card__description">
-                Краткое описание учебного товара.
-              </p>
-              <p class="product-card__price">Цена: 2000 руб.</p>
-              <a
-                class="button button--primary product-card__button"
-                href="product.html"
-                >Подробнее</a
-              >
+            <article
+              class="product-card product-item"
+              data-category="keyboard"
+              data-price="7990"
+            >
+              <div class="product-card__media">
+                <img
+                  class="product-card__image"
+                  src="images/product-keyboard-hypertype.webp"
+                  alt="Механическая клавиатура HyperType K87"
+                />
+              </div>
+              <div class="product-card__body">
+                <span class="badge badge--soft">Клавиатуры</span>
+                <h3 class="product-card__title">HyperType K87</h3>
+                <p class="product-card__description">
+                  Механическая клавиатура формата TKL со съёмным кабелем USB-C и
+                  настраиваемой RGB-подсветкой.
+                </p>
+                <p class="product-card__price">7 990 ₽</p>
+                <div class="product-card__actions">
+                  <button
+                    class="button button--primary button--block"
+                    type="button"
+                    data-product="HyperType K87"
+                    data-open-dialog
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="product-card product-item"
+              data-category="keyboard"
+              data-price="2990"
+            >
+              <div class="product-card__media">
+                <img
+                  class="product-card__image"
+                  src="images/product-keyboard-office.webp"
+                  alt="Офисная клавиатура Office Type 100"
+                />
+              </div>
+              <div class="product-card__body">
+                <span class="badge badge--soft">Клавиатуры</span>
+                <h3 class="product-card__title">Office Type 100</h3>
+                <p class="product-card__description">
+                  Полноразмерная мембранная клавиатура с тихим ходом клавиш и
+                  защитой от пролитой жидкости.
+                </p>
+                <p class="product-card__price">2 990 ₽</p>
+                <div class="product-card__actions">
+                  <button
+                    class="button button--primary button--block"
+                    type="button"
+                    data-product="Office Type 100"
+                    data-open-dialog
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="product-card product-item"
+              data-category="headset"
+              data-price="5490"
+            >
+              <div class="product-card__media">
+                <img
+                  class="product-card__image"
+                  src="images/product-headset-soundpro.webp"
+                  alt="Гарнитура Sound Pro H5"
+                />
+              </div>
+              <div class="product-card__body">
+                <span class="badge badge--warning">Гарнитуры</span>
+                <h3 class="product-card__title">Sound Pro H5</h3>
+                <p class="product-card__description">
+                  Полноразмерная гарнитура с шумоподавляющим микрофоном и
+                  мягкими амбушюрами для долгих сессий.
+                </p>
+                <p class="product-card__price">5 490 ₽</p>
+                <div class="product-card__actions">
+                  <button
+                    class="button button--primary button--block"
+                    type="button"
+                    data-product="Sound Pro H5"
+                    data-open-dialog
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="product-card product-item"
+              data-category="headset"
+              data-price="6490"
+            >
+              <div class="product-card__media">
+                <img
+                  class="product-card__image"
+                  src="images/product-headset-voice.webp"
+                  alt="Игровая гарнитура Gaming Voice G1"
+                />
+              </div>
+              <div class="product-card__body">
+                <span class="badge badge--warning">Гарнитуры</span>
+                <h3 class="product-card__title">Gaming Voice G1</h3>
+                <p class="product-card__description">
+                  Гарнитура с объёмным звуком 7.1 и микрофоном на выдвижной
+                  штанге — для игр и стримов.
+                </p>
+                <p class="product-card__price">6 490 ₽</p>
+                <div class="product-card__actions">
+                  <button
+                    class="button button--primary button--block"
+                    type="button"
+                    data-product="Gaming Voice G1"
+                    data-open-dialog
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </div>
             </article>
           </div>
+
+          <p class="notice" id="noProducts" hidden>
+            По выбранным условиям товары не найдены. Попробуйте смягчить фильтры
+            или сбросить их.
+          </p>
         </section>
-      </section>
+      </div>
     </main>
 
     <footer class="site-footer">
-      <div class="site-footer__inner">
-        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-        <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+      <div class="container site-footer__inner">
+        <span>© 2026 ShopProject. Учебный проект.</span>
+        <span class="site-footer__links">
+          <a href="contacts.html">Контакты</a>
+          <a href="order.html">Оформить заявку</a>
+        </span>
       </div>
     </footer>
+
+    <dialog
+      class="order-dialog"
+      id="orderModal"
+      aria-labelledby="orderModalLabel"
+    >
+      <form id="quickOrderForm" novalidate>
+        <div class="order-dialog__header">
+          <h2 class="order-dialog__title" id="orderModalLabel">
+            Оформление заявки
+          </h2>
+          <button
+            type="button"
+            class="order-dialog__close"
+            data-close-dialog
+            aria-label="Закрыть"
+          >
+            ×
+          </button>
+        </div>
+        <div class="order-dialog__body">
+          <div class="order-form__field">
+            <label class="order-form__label" for="quick-product">Товар</label>
+            <input
+              class="order-form__input"
+              id="quick-product"
+              name="product"
+              readonly
+              required
+            />
+          </div>
+          <div class="order-form__field">
+            <label class="order-form__label" for="quick-name">Имя</label>
+            <input
+              class="order-form__input"
+              id="quick-name"
+              name="name"
+              minlength="2"
+              autocomplete="given-name"
+              placeholder="Как к вам обращаться?"
+              required
+            />
+          </div>
+          <div class="order-form__field">
+            <label class="order-form__label" for="quick-email">E-mail</label>
+            <input
+              class="order-form__input"
+              id="quick-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+          <div class="form-check">
+            <input
+              id="quick-agreement"
+              name="agreement"
+              type="checkbox"
+              required
+            /><label for="quick-agreement">Согласен на обработку данных</label>
+          </div>
+          <p class="order-form__hint">
+            Демонстрационная форма: данные не отправляются на сервер.
+          </p>
+        </div>
+        <div class="order-dialog__footer">
+          <button
+            type="button"
+            class="button button--secondary"
+            data-close-dialog
+          >
+            Отмена
+          </button>
+          <button class="button button--primary" type="submit">
+            Отправить заявку
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="siteToast" role="status" aria-live="polite">
+      <strong class="toast__title">ShopProject</strong>
+      <p class="toast__message" id="toastMessage">Готово!</p>
+      <button class="toast__close" type="button" aria-label="Закрыть">×</button>
+    </div>
+
+    <a class="back-to-top" href="#" aria-label="Наверх">↑</a>
   </body>
 </html>

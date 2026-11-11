@@ -1,41 +1,54 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Подробная информация о товарах учебного интернет-магазина."
+      content="Pro Mouse X1 — лёгкая игровая мышь: характеристики, цена и оформление заявки в ShopProject."
     />
-    <title>Товар 1 — Учебный интернет-магазин</title>
+    <title>Pro Mouse X1 — ShopProject</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <div class="site-header__inner">
-        <a class="site-header__logo" href="index.html">ShopProject</a>
-        <nav class="site-nav" aria-label="Основная навигация">
+      <div class="container site-header__inner">
+        <a class="site-header__brand" href="index.html">ShopProject</a>
+        <button
+          class="site-header__toggle"
+          type="button"
+          id="navToggle"
+          aria-controls="mainNavigation"
+          aria-expanded="false"
+          aria-label="Открыть меню"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav
+          class="site-nav"
+          id="mainNavigation"
+          aria-label="Основная навигация"
+        >
           <ul class="site-nav__list">
-            <li class="site-nav__item">
+            <li>
               <a class="site-nav__link" href="index.html">Главная</a>
             </li>
-            <li class="site-nav__item">
+            <li>
               <a class="site-nav__link" href="catalog.html">Каталог</a>
             </li>
-            <li class="site-nav__item">
+            <li>
               <a class="site-nav__link" href="contacts.html">Контакты</a>
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#advantages"
-                >Преимущества</a
+            <li>
+              <a
+                class="site-nav__link site-nav__link--active"
+                aria-current="page"
+                href="product.html"
+                >Товар</a
               >
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#popular"
-                >Популярные товары</a
-              >
-            </li>
-            <li class="site-nav__item">
+            <li>
               <a class="site-nav__link" href="order.html">Оформить заявку</a>
             </li>
           </ul>
@@ -43,44 +56,52 @@
       </div>
     </header>
 
-    <main>
+    <main class="container">
       <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="index.html">Главная</a>
-        <span class="breadcrumbs__separator"> / </span>
-        <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
-        <span class="breadcrumbs__separator"> / </span>
-        <span class="breadcrumbs__current">Товар 1</span>
+        <ol>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li aria-current="page">Pro Mouse X1</li>
+        </ol>
       </nav>
 
-      <section class="product-detail section">
+      <section class="product-detail">
         <div class="product-detail__visual">
           <img
             class="product-detail__image"
-            src="images/product-1.svg"
-            alt="Изображение товара 1"
+            src="images/product-mouse-x1.webp"
+            alt="Игровая мышь Pro Mouse X1 крупным планом"
           />
         </div>
-
-        <div class="product-detail__content">
-          <p class="product-detail__category">Популярный товар</p>
-          <h1 class="product-detail__title">Товар 1</h1>
+        <div class="product-detail__info">
+          <span class="badge badge--primary">Популярный товар</span>
+          <h1 class="product-detail__title">Pro Mouse X1</h1>
           <p class="product-detail__description">
-            Универсальный учебный товар для демонстрации структуры карточки,
-            характеристик, стоимости и оформления заявки.
+            Лёгкая игровая мышь для динамичных игр и повседневной работы. Корпус
+            весом всего 68 г снижает усталость руки при долгих сессиях,
+            оптический сенсор с разрешением до 12 000 DPI точно отслеживает
+            быстрые движения, а кнопки рассчитаны на 20 миллионов нажатий.
+            Съемный кабель USB-C не путается на столе и переживает
+            транспортировку.
           </p>
-          <p class="product-detail__price">2 000 ₽</p>
-          <a class="button button--primary" href="order.html?product=Товар%201"
-            >Оставить заявку</a
+          <p class="product-detail__price">3 990 ₽</p>
+          <button
+            class="button button--primary button--lg"
+            type="button"
+            data-product="Pro Mouse X1"
+            data-open-dialog
           >
+            Оставить заявку
+          </button>
         </div>
       </section>
 
-      <section class="section">
-        <h2 class="section__title">Характеристики</h2>
+      <section class="product-note" style="margin-bottom: 48px">
+        <h2>Характеристики</h2>
         <div class="table-wrapper">
           <table class="characteristics-table">
-            <caption>
-              Основные характеристики товара 1
+            <caption class="visually-hidden">
+              Основные характеристики Pro Mouse X1
             </caption>
             <thead>
               <tr>
@@ -91,44 +112,156 @@
             <tbody>
               <tr>
                 <th scope="row">Категория</th>
-                <td>Учебные товары</td>
+                <td>Компьютерная периферия</td>
               </tr>
               <tr>
                 <th scope="row">Артикул</th>
                 <td>SP-001</td>
               </tr>
               <tr>
-                <th scope="row">Состояние</th>
-                <td>Новинка</td>
+                <th scope="row">Тип</th>
+                <td>Проводная игровая мышь</td>
               </tr>
               <tr>
-                <th scope="row">Срок обработки заявки</th>
-                <td>1 рабочий день</td>
+                <th scope="row">Сенсор</th>
+                <td>Оптический, до 12 000 DPI</td>
+              </tr>
+              <tr>
+                <th scope="row">Количество кнопок</th>
+                <td>6 (программируемые)</td>
+              </tr>
+              <tr>
+                <th scope="row">Вес</th>
+                <td>68 г</td>
+              </tr>
+              <tr>
+                <th scope="row">Подключение</th>
+                <td>Съёмный кабель USB-C, длина 1,8 м</td>
+              </tr>
+              <tr>
+                <th scope="row">Ресурс переключателей</th>
+                <td>20 млн нажатий</td>
               </tr>
               <tr>
                 <th scope="row">Цена</th>
-                <td>1000 руб.</td>
+                <td>3 990 ₽</td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
 
-      <section class="section product-note">
-        <h2 class="section__title">Как оформить заказ</h2>
-        <ol class="product-note__list">
-          <li>Нажмите кнопку «Оставить заявку».</li>
-          <li>Заполните контактные данные и выберите товар.</li>
-          <li>Отправьте форму для обработки заявки.</li>
+      <section class="product-note">
+        <h2>Как оформить заказ</h2>
+        <ol>
+          <li>Нажмите «Оставить заявку» и укажите имя и e-mail.</li>
+          <li>
+            Отправьте демонстрационную форму — данные проверятся в браузере.
+          </li>
+          <li>
+            Мы свяжемся с вами для подтверждения заказа и деталей доставки.
+          </li>
         </ol>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="site-footer__inner">
-        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-        <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+      <div class="container site-footer__inner">
+        <span>© 2026 ShopProject. Учебный проект.</span>
+        <span class="site-footer__links">
+          <a href="contacts.html">Контакты</a>
+          <a href="order.html">Оформить заявку</a>
+        </span>
       </div>
     </footer>
+
+    <dialog
+      class="order-dialog"
+      id="orderModal"
+      aria-labelledby="orderModalLabel"
+    >
+      <form id="quickOrderForm" novalidate>
+        <div class="order-dialog__header">
+          <h2 class="order-dialog__title" id="orderModalLabel">
+            Оформление заявки
+          </h2>
+          <button
+            type="button"
+            class="order-dialog__close"
+            data-close-dialog
+            aria-label="Закрыть"
+          >
+            ×
+          </button>
+        </div>
+        <div class="order-dialog__body">
+          <div class="order-form__field">
+            <label class="order-form__label" for="quick-product">Товар</label>
+            <input
+              class="order-form__input"
+              id="quick-product"
+              name="product"
+              readonly
+              required
+            />
+          </div>
+          <div class="order-form__field">
+            <label class="order-form__label" for="quick-name">Имя</label>
+            <input
+              class="order-form__input"
+              id="quick-name"
+              name="name"
+              minlength="2"
+              autocomplete="given-name"
+              placeholder="Как к вам обращаться?"
+              required
+            />
+          </div>
+          <div class="order-form__field">
+            <label class="order-form__label" for="quick-email">E-mail</label>
+            <input
+              class="order-form__input"
+              id="quick-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+          <div class="form-check">
+            <input
+              id="quick-agreement"
+              name="agreement"
+              type="checkbox"
+              required
+            /><label for="quick-agreement">Согласен на обработку данных</label>
+          </div>
+          <p class="order-form__hint">
+            Демонстрационная форма: данные не отправляются на сервер.
+          </p>
+        </div>
+        <div class="order-dialog__footer">
+          <button
+            type="button"
+            class="button button--secondary"
+            data-close-dialog
+          >
+            Отмена
+          </button>
+          <button class="button button--primary" type="submit">
+            Отправить заявку
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="siteToast" role="status" aria-live="polite">
+      <strong class="toast__title">ShopProject</strong>
+      <p class="toast__message" id="toastMessage">Готово!</p>
+      <button class="toast__close" type="button" aria-label="Закрыть">×</button>
+    </div>
+
+    <a class="back-to-top" href="#" aria-label="Наверх">↑</a>
   </body>
 </html>

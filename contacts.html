@@ -1,91 +1,161 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Контактная информация учебного интернет-магазина."
+      content="Контактная информация ShopProject: телефон, e-mail и адрес. Ответим на вопросы по выбору периферии."
     />
-    <title>Контакты — Учебный интернет-магазин</title>
+    <title>Контакты — ShopProject</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <div class="site-header__inner">
-        <a class="site-header__logo" href="index.html">ShopProject</a>
-
-        <nav class="site-nav" aria-label="Основная навигация">
+      <div class="container site-header__inner">
+        <a class="site-header__brand" href="index.html">ShopProject</a>
+        <button
+          class="site-header__toggle"
+          type="button"
+          id="navToggle"
+          aria-controls="mainNavigation"
+          aria-expanded="false"
+          aria-label="Открыть меню"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav
+          class="site-nav"
+          id="mainNavigation"
+          aria-label="Основная навигация"
+        >
           <ul class="site-nav__list">
-            <li class="site-nav__item">
+            <li>
               <a class="site-nav__link" href="index.html">Главная</a>
             </li>
-            <li class="site-nav__item">
+            <li>
               <a class="site-nav__link" href="catalog.html">Каталог</a>
             </li>
-            <li class="site-nav__item">
+            <li>
               <a
                 class="site-nav__link site-nav__link--active"
-                href="contacts.html"
                 aria-current="page"
+                href="contacts.html"
                 >Контакты</a
               >
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#advantages"
-                >Преимущества</a
-              >
+            <li>
+              <a class="site-nav__link" href="product.html">Товар</a>
             </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#popular"
-                >Популярные товары</a
-              >
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html#contacts"
-                >Обратная связь</a
-              >
+            <li>
+              <a class="site-nav__link" href="order.html">Оформить заявку</a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main class="container">
       <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="index.html">Главная</a>
-        <span class="breadcrumbs__current">Контакты</span>
+        <ol>
+          <li><a href="index.html">Главная</a></li>
+          <li aria-current="page">Контакты</li>
+        </ol>
       </nav>
 
-      <section class="section">
-        <h1>Контакты</h1>
-        <p>
-          Здесь размещается контактная информация учебного интернет-магазина.
+      <section style="margin-bottom: 48px">
+        <p class="eyebrow">Свяжитесь с нами</p>
+        <h1 class="section-heading" style="font-size: clamp(28px, 4vw, 42px)">
+          Контакты
+        </h1>
+        <p
+          class="text-muted"
+          style="margin: 0; max-width: 620px; font-size: 17px"
+        >
+          Учебный интернет-магазин компьютерной периферии. Поможем выбрать мышь,
+          клавиатуру или гарнитуру под ваши задачи и бюджет.
         </p>
-
-        <ul class="contacts-list">
-          <li>Телефон: +7 (900) 000-00-00</li>
-          <li>E-mail: info@example.com</li>
-          <li>Адрес: г. Москва, учебный проект</li>
-        </ul>
       </section>
 
-      <section class="section" id="feedback">
-        <h2 class="section__title">Обратная связь</h2>
-        <p>
-          Для отправки заявки используйте отдельную страницу оформления заказа.
-        </p>
-        <a class="button button--primary" href="index.html#contacts"
-          >Перейти к форме</a
+      <div class="cards-grid">
+        <div class="info-card">
+          <div class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+          </div>
+          <h2>Телефон</h2>
+          <p>
+            <a href="tel:+79000000000">+7 (900) 000-00-00</a><br />
+            Пн–Пт: 10:00–19:00, Сб: 11:00–17:00
+          </p>
+        </div>
+        <div class="info-card">
+          <div class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-10 6L2 7" />
+            </svg>
+          </div>
+          <h2>E-mail</h2>
+          <p>
+            <a href="mailto:info@example.com">info@example.com</a><br />
+            Отвечаем в течение рабочего дня
+          </p>
+        </div>
+        <div class="info-card">
+          <div class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <h2>Адрес</h2>
+          <p>
+            г. Москва, ул. Учебная, д. 1<br />
+            Демо-адрес учебного проекта
+          </p>
+        </div>
+      </div>
+
+      <section class="catalog-hero" style="margin-top: 48px">
+        <h2
+          style="
+            margin: 0 0 8px;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+          "
         >
+          Нужна помощь с выбором?
+        </h2>
+        <p style="margin: 0 0 24px; max-width: 620px">
+          Расскажите, для каких задач подбираете периферию — для работы, учёбы
+          или игр, — и мы предложим подходящие модели из каталога. Заявки
+          обрабатываются в демонстрационном режиме.
+        </p>
+        <a href="order.html" class="button button--primary">Оставить заявку</a>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="site-footer__inner">
-        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-        <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+      <div class="container site-footer__inner">
+        <span>© 2026 ShopProject. Учебный проект.</span>
+        <span class="site-footer__links">
+          <a href="catalog.html">Каталог товаров</a>
+          <a href="order.html">Оформить заявку</a>
+        </span>
       </div>
     </footer>
+
+    <div class="toast" id="siteToast" role="status" aria-live="polite">
+      <strong class="toast__title">ShopProject</strong>
+      <p class="toast__message" id="toastMessage">Готово!</p>
+      <button class="toast__close" type="button" aria-label="Закрыть">×</button>
+    </div>
+
+    <a class="back-to-top" href="#" aria-label="Наверх">↑</a>
   </body>
 </html>
