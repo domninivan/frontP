@@ -8,23 +8,19 @@
    1. Переменные проекта
    =============================== */
 :root {
-  /* Основные цвета проекта */
+  --color-muted: #66655f;
+  --color-primary: #666f00;
+  --color-primary-dark: #565f00;
+  --color-danger: #c62828;
+  --color-success: #666f00;
+
   --color-bg: #fdf6e3;
   --color-text: #5c6a72;
-  /* Приглушённый текст затемнён ради контраста ≥ 4.5:1 */
-  --color-muted: #667268;
-
-  --color-primary: #8da101;
-  --color-primary-dark: #708000;
 
   --color-border: #d3c6aa;
 
   --color-surface: #f4f0df;
   --color-surface-accent: #e7edc7;
-
-  --color-danger: #f85552;
-
-  --color-success: #8da101;
   --color-success-bg: #e7edc7;
 
   --color-white: #ffffff;
@@ -432,18 +428,36 @@ textarea:focus-visible {
 }
 
 .carousel__indicator {
-  width: 11px;
-  height: 11px;
+  position: relative;
+  width: 24px;
+  height: 24px;
   padding: 0;
   border: none;
   border-radius: 50%;
-  background-color: rgb(255 255 255 / 55%);
+  background: transparent;
   cursor: pointer;
+}
+
+.carousel__indicator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 55%);
   transition: background-color 0.2s ease;
 }
 
-.carousel__indicator--active {
+.carousel__indicator--active::before {
   background-color: var(--color-white);
+}
+
+.carousel__indicator:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
 }
 
 .carousel__control {
@@ -458,7 +472,7 @@ textarea:focus-visible {
   border: none;
   border-radius: 50%;
   color: var(--color-white);
-  background-color: rgb(23 35 68 / 45%);
+  background-color: rgb(23 35 68 / 62%);
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
@@ -1232,15 +1246,15 @@ textarea:focus-visible {
 
 .toast__close {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 28px;
-  height: 28px;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
   border: none;
-  border-radius: 50%;
+  border-radius: 0 var(--radius-md) 0 var(--radius-sm);
   color: var(--color-muted);
   background: transparent;
-  font-size: 16px;
+  font-size: 22px;
   line-height: 1;
   cursor: pointer;
 }
@@ -1279,6 +1293,12 @@ textarea:focus-visible {
   content: "·";
   margin: 0 8px;
   color: rgb(255 255 255 / 50%);
+  .site-footer__links a,
+  .breadcrumbs a,
+  .info-card p a {
+    display: inline-block;
+    padding: 4px 0;
+  }
 }
 
 /* Кнопка «Наверх» */
