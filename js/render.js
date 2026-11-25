@@ -32,11 +32,23 @@ function createProductCard(product) {
   const body = createNode("div", "product-card__body");
   body.append(createNode("span", product.badgeClass, product.badge));
   body.append(createNode("h3", "product-card__title", product.name));
-  body.append(createNode("p", "product-card__description", product.description));
-  body.append(createNode("p", "product-card__price", formatPrice(product.price)));
+  body.append(
+    createNode("p", "product-card__description", product.description),
+  );
+  body.append(
+    createNode("p", "product-card__price", formatPrice(product.price)),
+  );
 
-  /* Кнопка «Заказать» — тот же обработчик, что у статичных карточек */
+  /* Кнопки «В корзину» и «Заказать» — обработчики навешиваются
+     делегированием (cart.js и main.js), поэтому переживают перерисовки */
   const actions = createNode("div", "product-card__actions");
+  const cartButton = createNode(
+    "button",
+    "button button--secondary button--block",
+    "В корзину",
+  );
+  cartButton.type = "button";
+  cartButton.dataset.addToCart = String(product.id);
   const orderButton = createNode(
     "button",
     "button button--primary button--block",
@@ -44,8 +56,11 @@ function createProductCard(product) {
   );
   orderButton.type = "button";
   orderButton.dataset.product = product.name;
+  /* Связка карточки с товаром по id из массива products:
+     по этому id корзина и заявка находят данные товара */
+  orderButton.dataset.productId = String(product.id);
   orderButton.dataset.openDialog = "";
-  actions.append(orderButton);
+  actions.append(cartButton, orderButton);
   body.append(actions);
 
   card.append(media, body);

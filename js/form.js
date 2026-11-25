@@ -60,11 +60,22 @@ function initForms(showMessage) {
         quickForm.querySelector(":invalid")?.focus();
         return;
       }
-      const product = document.getElementById("quick-product")?.value || "выбранный товар";
+      /* Связка заявки с корзиной: id товара запоминает main.js при
+         открытии диалога (data-product-id на поле #quick-product).
+         Заявка на товар из каталога добавляет его в корзину. */
+      const productInput = document.getElementById("quick-product");
+      const productId = Number(productInput?.dataset.productId);
+      const knownProduct = products.some((item) => item.id === productId);
+      if (knownProduct) addItemToCart(productId);
+      const product = productInput?.value || "выбранный товар";
       quickForm.reset();
       quickForm.classList.remove("was-validated");
       document.getElementById("orderModal")?.close();
-      showMessage(`Заявка на «${product}» оформлена в демонстрационном режиме.`);
+      showMessage(
+        knownProduct
+          ? `Заявка на «${product}» оформлена, товар добавлен в корзину (демонстрационный режим).`
+          : `Заявка на «${product}» оформлена в демонстрационном режиме.`,
+      );
     });
   }
 

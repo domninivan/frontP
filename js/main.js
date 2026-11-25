@@ -28,8 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (toast) {
     toast
       .querySelector(".toast__close")
-      ?.addEventListener("click", () => toast.classList.remove("toast--visible"));
+      ?.addEventListener("click", () =>
+        toast.classList.remove("toast--visible"),
+      );
   }
+
+  /* ---------- 2a. Корзина (js/cart.js) ---------- */
+  initCart(showMessage);
 
   /* ---------- 3. Мобильное меню («бургер») ---------- */
   const navToggle = document.getElementById("navToggle");
@@ -39,7 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
     navToggle.addEventListener("click", () => {
       const isOpen = navToggle.getAttribute("aria-expanded") === "true";
       navToggle.setAttribute("aria-expanded", String(!isOpen));
-      navToggle.setAttribute("aria-label", isOpen ? "Открыть меню" : "Закрыть меню");
+      navToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Открыть меню" : "Закрыть меню",
+      );
       mainNav.classList.toggle("site-nav--open", !isOpen);
     });
 
@@ -57,11 +65,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalProduct = document.getElementById("quick-product");
 
   /* Делегирование: обработчик ловит клики и на статичных кнопках,
-     и на карточках, созданных заново при перерисовке каталога. */
+     и на карточках, созданных заново при перерисовке каталога.
+     Связка с товаром: кнопка несёт data-product-id (id из массива
+     products), название подставляется из данных, а id запоминается
+     на поле формы — после отправки заявки по нему товар попадёт
+     в корзину (js/form.js). */
   document.addEventListener("click", (event) => {
     const button = event.target.closest("[data-open-dialog]");
     if (!button) return;
-    if (modalProduct) modalProduct.value = button.dataset.product || "";
+    if (modalProduct) {
+      const productId = Number(button.dataset.productId);
+      const product = products.find((item) => item.id === productId);
+      modalProduct.value = product
+        ? product.name
+        : button.dataset.product || "";
+      modalProduct.dataset.productId = product ? String(product.id) : "";
+    }
     if (orderDialog) orderDialog.showModal();
   });
 
@@ -178,10 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.querySelector(".back-to-top");
   if (backToTop) {
     const toggleVisibility = () => {
-      backToTop.classList.toggle(
-        "back-to-top--visible",
-        window.scrollY > 600,
-      );
+      backToTop.classList.toggle("back-to-top--visible", window.scrollY > 600);
     };
     window.addEventListener("scroll", toggleVisibility, { passive: true });
     toggleVisibility();

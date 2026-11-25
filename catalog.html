@@ -15,6 +15,7 @@
     <script src="js/search.js" defer></script>
     <script src="js/filters.js" defer></script>
     <script src="js/form.js" defer></script>
+    <script src="js/cart.js" defer></script>
     <script src="js/main.js" defer></script>
   </head>
   <body>
@@ -31,13 +32,22 @@
         >
           <span></span><span></span><span></span>
         </button>
-        <nav class="site-nav" id="mainNavigation" aria-label="Основная навигация">
+        <nav
+          class="site-nav"
+          id="mainNavigation"
+          aria-label="Основная навигация"
+        >
           <ul class="site-nav__list">
             <li>
               <a class="site-nav__link" href="index.html">Главная</a>
             </li>
             <li>
-              <a class="site-nav__link site-nav__link--active" aria-current="page" href="catalog.html">Каталог</a>
+              <a
+                class="site-nav__link site-nav__link--active"
+                aria-current="page"
+                href="catalog.html"
+                >Каталог</a
+              >
             </li>
             <li>
               <a class="site-nav__link" href="contacts.html">Контакты</a>
@@ -101,7 +111,7 @@
                 type="number"
                 id="priceFrom"
                 min="0"
-                step="100"
+                step="1"
                 placeholder="0"
               />
               <label for="priceTo">До</label>
@@ -109,12 +119,15 @@
                 type="number"
                 id="priceTo"
                 min="0"
-                step="100"
+                step="1"
                 placeholder="15000"
               />
             </fieldset>
             <div>
-              <button class="button button--primary button--block" type="submit">
+              <button
+                class="button button--primary button--block"
+                type="submit"
+              >
                 Применить
               </button>
               <button
@@ -169,8 +182,8 @@
           <div class="products-grid" id="catalogGrid"></div>
 
           <p class="notice" id="noProducts" hidden>
-            По выбранным условиям товары не найдены. Попробуйте изменить
-            поиск, смягчить фильтры или сбросить их.
+            По выбранным условиям товары не найдены. Попробуйте изменить поиск,
+            смягчить фильтры или сбросить их.
           </p>
         </section>
       </div>
@@ -186,7 +199,11 @@
       </div>
     </footer>
 
-    <dialog class="order-dialog" id="orderModal" aria-labelledby="orderModalLabel">
+    <dialog
+      class="order-dialog"
+      id="orderModal"
+      aria-labelledby="orderModalLabel"
+    >
       <form id="quickOrderForm" novalidate>
         <div class="order-dialog__header">
           <h2 class="order-dialog__title" id="orderModalLabel">

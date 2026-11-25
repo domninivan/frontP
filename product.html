@@ -14,6 +14,7 @@
     <script src="js/search.js" defer></script>
     <script src="js/filters.js" defer></script>
     <script src="js/form.js" defer></script>
+    <script src="js/cart.js" defer></script>
     <script src="js/main.js" defer></script>
   </head>
   <body>
@@ -30,7 +31,11 @@
         >
           <span></span><span></span><span></span>
         </button>
-        <nav class="site-nav" id="mainNavigation" aria-label="Основная навигация">
+        <nav
+          class="site-nav"
+          id="mainNavigation"
+          aria-label="Основная навигация"
+        >
           <ul class="site-nav__list">
             <li>
               <a class="site-nav__link" href="index.html">Главная</a>
@@ -42,7 +47,12 @@
               <a class="site-nav__link" href="contacts.html">Контакты</a>
             </li>
             <li>
-              <a class="site-nav__link site-nav__link--active" aria-current="page" href="product.html">Товар</a>
+              <a
+                class="site-nav__link site-nav__link--active"
+                aria-current="page"
+                href="product.html"
+                >Товар</a
+              >
             </li>
             <li>
               <a class="site-nav__link" href="order.html">Оформить заявку</a>
@@ -73,18 +83,26 @@
           <span class="badge badge--primary">Популярный товар</span>
           <h1 class="product-detail__title">Pro Mouse X1</h1>
           <p class="product-detail__description">
-            Лёгкая игровая мышь для динамичных игр и повседневной работы.
-            Корпус весом всего 68 г снижает усталость руки при долгих
-            сессиях, оптический сенсор с разрешением до 12 000 DPI точно
-            отслеживает быстрые движения, а кнопки рассчитаны на 20 миллионов
-            нажатий. Съемный кабель USB-C не путается на столе и переживает
+            Лёгкая игровая мышь для динамичных игр и повседневной работы. Корпус
+            весом всего 68 г снижает усталость руки при долгих сессиях,
+            оптический сенсор с разрешением до 12 000 DPI точно отслеживает
+            быстрые движения, а кнопки рассчитаны на 20 миллионов нажатий.
+            Съемный кабель USB-C не путается на столе и переживает
             транспортировку.
           </p>
           <p class="product-detail__price">3 990 ₽</p>
           <button
+            class="button button--secondary button--lg"
+            type="button"
+            data-add-to-cart="1"
+          >
+            В корзину
+          </button>
+          <button
             class="button button--primary button--lg"
             type="button"
             data-product="Pro Mouse X1"
+            data-product-id="1"
             data-open-dialog
           >
             Оставить заявку
@@ -151,8 +169,12 @@
         <h2>Как оформить заказ</h2>
         <ol>
           <li>Нажмите «Оставить заявку» и укажите имя и e-mail.</li>
-          <li>Отправьте демонстрационную форму — данные проверятся в браузере.</li>
-          <li>Мы свяжемся с вами для подтверждения заказа и деталей доставки.</li>
+          <li>
+            Отправьте демонстрационную форму — данные проверятся в браузере.
+          </li>
+          <li>
+            Мы свяжемся с вами для подтверждения заказа и деталей доставки.
+          </li>
         </ol>
       </section>
     </main>
@@ -167,7 +189,11 @@
       </div>
     </footer>
 
-    <dialog class="order-dialog" id="orderModal" aria-labelledby="orderModalLabel">
+    <dialog
+      class="order-dialog"
+      id="orderModal"
+      aria-labelledby="orderModalLabel"
+    >
       <form id="quickOrderForm" novalidate>
         <div class="order-dialog__header">
           <h2 class="order-dialog__title" id="orderModalLabel">
