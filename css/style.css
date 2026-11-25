@@ -8,19 +8,23 @@
    1. Переменные проекта
    =============================== */
 :root {
-  --color-muted: #66655f;
-  --color-primary: #666f00;
-  --color-primary-dark: #565f00;
-  --color-danger: #c62828;
-  --color-success: #666f00;
-
+  /* Основные цвета проекта */
   --color-bg: #fdf6e3;
   --color-text: #5c6a72;
+  /* Приглушённый текст затемнён ради контраста ≥ 4.5:1 */
+  --color-muted: #667268;
+
+  --color-primary: #8da101;
+  --color-primary-dark: #708000;
 
   --color-border: #d3c6aa;
 
   --color-surface: #f4f0df;
   --color-surface-accent: #e7edc7;
+
+  --color-danger: #f85552;
+
+  --color-success: #8da101;
   --color-success-bg: #e7edc7;
 
   --color-white: #ffffff;
@@ -428,36 +432,18 @@ textarea:focus-visible {
 }
 
 .carousel__indicator {
-  position: relative;
-  width: 24px;
-  height: 24px;
+  width: 11px;
+  height: 11px;
   padding: 0;
   border: none;
   border-radius: 50%;
-  background: transparent;
-  cursor: pointer;
-}
-
-.carousel__indicator::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
   background-color: rgb(255 255 255 / 55%);
+  cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.carousel__indicator--active::before {
+.carousel__indicator--active {
   background-color: var(--color-white);
-}
-
-.carousel__indicator:focus-visible {
-  outline: 2px solid var(--color-white);
-  outline-offset: 2px;
 }
 
 .carousel__control {
@@ -472,7 +458,7 @@ textarea:focus-visible {
   border: none;
   border-radius: 50%;
   color: var(--color-white);
-  background-color: rgb(23 35 68 / 62%);
+  background-color: rgb(23 35 68 / 45%);
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
@@ -1246,15 +1232,15 @@ textarea:focus-visible {
 
 .toast__close {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 44px;
-  height: 44px;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
   border: none;
-  border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+  border-radius: 50%;
   color: var(--color-muted);
   background: transparent;
-  font-size: 22px;
+  font-size: 16px;
   line-height: 1;
   cursor: pointer;
 }
@@ -1293,12 +1279,6 @@ textarea:focus-visible {
   content: "·";
   margin: 0 8px;
   color: rgb(255 255 255 / 50%);
-  .site-footer__links a,
-  .breadcrumbs a,
-  .info-card p a {
-    display: inline-block;
-    padding: 4px 0;
-  }
 }
 
 /* Кнопка «Наверх» */
@@ -1341,6 +1321,42 @@ textarea:focus-visible {
 /* Вертикальные интервалы между секциями главной страницы */
 main > section.container + section.container {
   margin-top: 48px;
+}
+
+/* ===============================
+   16a. Поиск и сортировка в каталоге
+   =============================== */
+.catalog-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.catalog-toolbar__search {
+  flex: 1 1 240px;
+  max-width: 340px;
+}
+
+/* Поле поиска и селект сортировки используют стили .order-form__input /
+   .order-form__select, здесь задаётся только раскладка панели */
+.catalog-toolbar__sort {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.catalog-toolbar__sort .order-form__select {
+  width: auto;
+  min-width: 200px;
+}
+
+.catalog-toolbar__label {
+  color: var(--color-muted);
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 /* ===============================

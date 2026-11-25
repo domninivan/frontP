@@ -9,6 +9,11 @@
     />
     <title>ShopProject — Главная</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/data.js" defer></script>
+    <script src="js/render.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/filters.js" defer></script>
+    <script src="js/form.js" defer></script>
     <script src="js/main.js" defer></script>
   </head>
   <body>
@@ -25,19 +30,10 @@
         >
           <span></span><span></span><span></span>
         </button>
-        <nav
-          class="site-nav"
-          id="mainNavigation"
-          aria-label="Основная навигация"
-        >
+        <nav class="site-nav" id="mainNavigation" aria-label="Основная навигация">
           <ul class="site-nav__list">
             <li>
-              <a
-                class="site-nav__link site-nav__link--active"
-                aria-current="page"
-                href="index.html"
-                >Главная</a
-              >
+              <a class="site-nav__link site-nav__link--active" aria-current="page" href="index.html">Главная</a>
             </li>
             <li>
               <a class="site-nav__link" href="catalog.html">Каталог</a>
@@ -61,7 +57,9 @@
         <div class="container hero-section__inner">
           <div>
             <p class="eyebrow">PC PERIPHERY · SHOPPROJECT</p>
-            <h1 class="hero-title">Техника для работы, учёбы и игр</h1>
+            <h1 class="hero-title">
+              Техника для работы, учёбы и игр
+            </h1>
             <p class="hero-lead">
               Мыши, клавиатуры и гарнитуры для дома и офиса — с понятными
               описаниями, честными характеристиками и ценами без сюрпризов.
@@ -85,22 +83,13 @@
             >
               <div class="carousel__track">
                 <div class="carousel__slide carousel__slide--active">
-                  <img
-                    src="images/hero-1.webp"
-                    alt="Рабочее место с механической клавиатурой и гарнитурой"
-                  />
+                  <img src="images/hero-1.webp" alt="Рабочее место с механической клавиатурой и гарнитурой" />
                 </div>
                 <div class="carousel__slide">
-                  <img
-                    src="images/hero-2.webp"
-                    alt="Аккуратный стол с монитором, мышью и клавиатурой"
-                  />
+                  <img src="images/hero-2.webp" alt="Аккуратный стол с монитором, мышью и клавиатурой" />
                 </div>
                 <div class="carousel__slide">
-                  <img
-                    src="images/hero-3.webp"
-                    alt="Уютное рабочее место с периферией в тёплом свете"
-                  />
+                  <img src="images/hero-3.webp" alt="Уютное рабочее место с периферией в тёплом свете" />
                 </div>
               </div>
               <div class="carousel__indicators">
@@ -147,25 +136,25 @@
             <span class="feature-icon">01</span>
             <h3>Понятный каталог</h3>
             <p>
-              Товары разделены по категориям — мыши, клавиатуры и гарнитуры. У
-              каждой позиции есть описание, характеристики и цена.
+              Товары разделены по категориям — мыши, клавиатуры и гарнитуры.
+              У каждой позиции есть описание, характеристики и цена.
             </p>
           </article>
           <article class="info-card">
             <span class="feature-icon">02</span>
             <h3>Адаптивный интерфейс</h3>
             <p>
-              Сайт одинаково удобен на телефоне, планшете и компьютере: вёрстка
-              перестраивается собственными медиа-запросами, без сторонних
-              фреймворков.
+              Сайт одинаково удобен на телефоне, планшете и компьютере:
+              вёрстка перестраивается собственными медиа-запросами, без
+              сторонних фреймворков.
             </p>
           </article>
           <article class="info-card">
             <span class="feature-icon">03</span>
             <h3>Удобная заявка</h3>
             <p>
-              Заказ оформляется в пару кликов: выберите товар, оставьте контакты
-              — и мы свяжемся с вами для подтверждения.
+              Заказ оформляется в пару кликов: выберите товар, оставьте
+              контакты — и мы свяжемся с вами для подтверждения.
             </p>
           </article>
         </div>
@@ -205,9 +194,7 @@
                 >
                   Заказать
                 </button>
-                <a
-                  class="button button--secondary button--block"
-                  href="product.html"
+                <a class="button button--secondary button--block" href="product.html"
                   >Подробнее</a
                 >
               </div>
@@ -238,9 +225,7 @@
                 >
                   Заказать
                 </button>
-                <a
-                  class="button button--secondary button--block"
-                  href="product.html"
+                <a class="button button--secondary button--block" href="product.html"
                   >Подробнее</a
                 >
               </div>
@@ -258,8 +243,8 @@
               <span class="badge badge--warning">Популярный выбор</span>
               <h3 class="product-card__title">Sound Pro H5</h3>
               <p class="product-card__description">
-                Полноразмерная гарнитура с шумоподавляющим микрофоном и мягкими
-                амбушюрами.
+                Полноразмерная гарнитура с шумоподавляющим микрофоном и
+                мягкими амбушюрами.
               </p>
               <p class="product-card__price">5 490 ₽</p>
               <div class="product-card__actions">
@@ -271,9 +256,7 @@
                 >
                   Заказать
                 </button>
-                <a
-                  class="button button--secondary button--block"
-                  href="product.html"
+                <a class="button button--secondary button--block" href="product.html"
                   >Подробнее</a
                 >
               </div>
@@ -287,32 +270,26 @@
         <h2 class="section-heading">Что говорят покупатели</h2>
         <div class="cards-grid">
           <article class="review-card">
-            <div class="review-card__rating" aria-label="Оценка: 5 из 5">
-              ★★★★★
-            </div>
+            <div class="review-card__rating" aria-label="Оценка: 5 из 5">★★★★★</div>
             <p class="review-card__text">
-              «Мышь почти не чувствуется в руке, за вечер gaming-сессии рука не
-              устаёт. Сенсор точный — в шутерах разница заметна сразу».
+              «Мышь почти не чувствуется в руке, за вечер gaming-сессии рука
+              не устаёт. Сенсор точный — в шутерах разница заметна сразу».
             </p>
             <p class="review-card__author">Алексей <span>Покупатель</span></p>
           </article>
           <article class="review-card review-card--accent">
-            <div class="review-card__rating" aria-label="Оценка: 5 из 5">
-              ★★★★★
-            </div>
+            <div class="review-card__rating" aria-label="Оценка: 5 из 5">★★★★★</div>
             <p class="review-card__text">
-              «Беру клавиатуру в офис и домой: клавиши нажимаются мягко, но с
-              понятным откликом, соседи по опенспейсу не жалуются».
+              «Беру клавиатуру в офис и домой: клавиши нажимаются мягко, но
+              с понятным откликом, соседи по опенспейсу не жалуются».
             </p>
             <p class="review-card__author">Мария <span>Покупатель</span></p>
           </article>
           <article class="review-card">
-            <div class="review-card__rating" aria-label="Оценка: 4 из 5">
-              ★★★★☆
-            </div>
+            <div class="review-card__rating" aria-label="Оценка: 4 из 5">★★★★☆</div>
             <p class="review-card__text">
-              «Гарнитура сидит удобно, звук чистый, микрофон слышно хорошо. Не
-              хватало только USB-звука в комплекте — пришлось докупить».
+              «Гарнитура сидит удобно, звук чистый, микрофон слышно хорошо.
+              Не хватало только USB-звука в комплекте — пришлось докупить».
             </p>
             <p class="review-card__author">Дмитрий <span>Покупатель</span></p>
           </article>
@@ -330,11 +307,7 @@
       </div>
     </footer>
 
-    <dialog
-      class="order-dialog"
-      id="orderModal"
-      aria-labelledby="orderModalLabel"
-    >
+    <dialog class="order-dialog" id="orderModal" aria-labelledby="orderModalLabel">
       <form id="quickOrderForm" novalidate>
         <div class="order-dialog__header">
           <h2 class="order-dialog__title" id="orderModalLabel">
